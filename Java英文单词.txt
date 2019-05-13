@@ -1,0 +1,2 @@
+character 1.字符集  2.char的包装类
+truncate 删除表结构
