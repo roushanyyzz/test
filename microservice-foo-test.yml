@@ -80,9 +80,6 @@ spring:
       max-request-size: -1
 
 
----
-spring:
-  profiles: dev-54
 arb:
   eureka:
     url: 192.168.0.54
