@@ -1,1 +1,4 @@
+server:
+  port:8890
+  
 profile: production-1.0
