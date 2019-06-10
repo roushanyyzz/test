@@ -5,12 +5,15 @@ arb:
   service:
     name: microservice-foo
     port: 8890
-    url: 192.168.0.54
+    
+---
+spring:
+  profiles: slave-54
+arb:
   eureka:
     url: 192.168.0.54
-    
-# spring:
-#   profiles: slave-54
+  service:
+    url: 192.168.0.54
 
  
 
