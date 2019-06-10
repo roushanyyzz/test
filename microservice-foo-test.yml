@@ -53,8 +53,6 @@ server:
   tomcat:
     max-http-post-size: -1
 spring:
-  application:
-    name: ${arb.service.name}
   mvc:
     static-path-pattern: /**
   rabbitmq:
@@ -79,11 +77,6 @@ spring:
       file-size-threshold: 0
       max-file-size: -1
       max-request-size: -1
-  cloud:
-    config:
-      uri: http://localhost:8888/
-      profile: test
-      label: master
 
 ---
 spring:
