@@ -21,4 +21,4 @@ arb:
 
 
 #   ${arb.service.name}-${arb.service.url}-eur${arb.eureka.url}-ser${arb.service.url}
-profile: ${arb.service.name}-${arb.service.url}-${arb.service.name}
+profile: ${arb.service.name}-${arb.service.port}
