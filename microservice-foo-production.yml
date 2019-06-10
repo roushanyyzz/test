@@ -6,8 +6,18 @@ arb:
     name: microservice-foo
     port: 8890
     url: 111111
+    
+---
+spring:
+  profiles: slave-54
+arb:
+  eureka:
+    url: 192.168.0.54
+  service:
+    url: 192.168.0.54
+
 
 
 
 #   ${arb.service.name}-${arb.service.url}
-profile: ${arb.service.name}-${arb.service.url}-${arb.service.name}
+profile: ${arb.service.name}-${arb.service.url}-${arb.service.name}-eur${arb.eureka.url}-ser${arb.service.url}
