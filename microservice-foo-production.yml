@@ -8,4 +8,4 @@ server:
   port: 8890
 
 #   ${arb.service.name}-${arb.service.url}
-profile: production-${arb.service.name}-${arb.service.url}
+profile: production-1111
