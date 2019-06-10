@@ -3,7 +3,7 @@ arb:
   service:
     name: microservice-business
     port: 8802
-    
+
 eureka:
   instance:
     instance-id: ${arb.service.url}:${spring.application.name}:${server.port}
