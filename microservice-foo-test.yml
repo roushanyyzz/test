@@ -91,4 +91,4 @@ arb:
     username: Arbfintech
     password: Arbfintech
   
-profile: test-${spring.application.name}
+# profile: test-${spring.application.name}
