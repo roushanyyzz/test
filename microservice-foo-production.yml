@@ -5,7 +5,10 @@ arb:
   service:
     name: microservice-foo
     port: 8890
-    
+
+management:
+  security:
+    enabled: false    
 # ---
 # spring:
 #   profiles: slave-54
