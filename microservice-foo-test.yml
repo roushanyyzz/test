@@ -1,4 +1,102 @@
-server: 
-  port: 8889
+#自定义配置
+arb:
+  service:
+    name: microservice-foo
+    port: 8889
+
+eureka:
+  instance:
+    instance-id: ${arb.service.url}:${spring.application.name}:${server.port}
+    hostname: ${arb.service.url}
+    ip-address: ${arb.service.url}
+    prefer-ip-address: true
+
+  #    lease-renewal-interval-in-seconds: 10
+  #    lease-expiration-duration-in-seconds: 30
+  client:
+    service-url:
+      defaultZone: http://${arb.eureka.url}:8901/eureka/
+feign:
+  client:
+    config:
+      microservice-business:
+        connectTimeout: 60000
+        readTimeout: 60000
+      microservice-lead:
+        connectTimeout: 60000
+        readTimeout: 60000
+      microservice-loan:
+        connectTimeout: 600000
+        readTimeout: 600000
+      microservice-payment:
+        connectTimeout: 60000
+        readTimeout: 60000
+      microservice-collect:
+        connectTimeout: 60000
+        readTimeout: 60000
+      microservice-maintenance:
+        connectTimeout: 60000
+        readTimeout: 60000
+      cache-server:
+        connectTimeout: 60000
+        readTimeout: 60000
+      auth-server:
+        connectTimeout: 60000
+        readTimeout: 60000
+    httpclient:
+      connection-timeout: 60000
+  hystrix:
+    enabled: true
+server:
+  port: ${arb.service.port}
+  max-http-header-size: 10240000
+  tomcat:
+    max-http-post-size: -1
+spring:
+  application:
+    name: ${arb.service.name}
+  mvc:
+    static-path-pattern: /**
+  rabbitmq:
+    host: ${arb.rabbitmq.url}
+    port: ${arb.rabbitmq.port}
+    username: ${arb.rabbitmq.username}
+    password: ${arb.rabbitmq.password}
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+  resources:
+    static-locations: classpath:/static/
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+  http:
+    multipart:
+      enabled: true
+      file-size-threshold: 0
+      max-file-size: -1
+      max-request-size: -1
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      profile: test
+      label: master
+
+---
+spring:
+  profiles: dev-54
+arb:
+  eureka:
+    url: 192.168.0.54
+  service:
+    url: 192.168.0.54
+  rabbitmq:
+    url: 192.168.0.100
+    port: 5672
+    username: Arbfintech
+    password: Arbfintech
   
 profile: test-1.0
