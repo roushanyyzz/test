@@ -5,7 +5,7 @@ arb:
   service:
     name: microservice-foo
     port: 8890
-    url: 111111
+#     url: 111111
   eureka:
     url: 192.168.0.54
   service:
