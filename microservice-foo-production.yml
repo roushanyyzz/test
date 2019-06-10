@@ -7,7 +7,6 @@ arb:
     port: 8890
     url: 111111
     
----
 spring:
   profiles: slave-54
 arb:
