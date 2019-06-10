@@ -5,7 +5,7 @@ arb:
     url: 111111
 
 server:
-  port: 8890
+  port: ${arb.service.port}
 
 #   ${arb.service.name}-${arb.service.url}
 profile: ${arb.service.name}-${arb.service.url}
