@@ -1,4 +1,3 @@
-#自定义配置
 arb:
   service:
     name: microservice-foo
@@ -53,6 +52,8 @@ server:
   tomcat:
     max-http-post-size: -1
 spring:
+  application:
+    name: ${arb.service.name}
   mvc:
     static-path-pattern: /**
   rabbitmq:
@@ -78,6 +79,8 @@ spring:
       max-file-size: -1
       max-request-size: -1
 
+
+---
 spring:
   profiles: dev-54
 arb:
@@ -90,5 +93,3 @@ arb:
     port: 5672
     username: Arbfintech
     password: Arbfintech
-  
-# profile: test-${spring.application.name}
