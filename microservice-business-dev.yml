@@ -19,8 +19,6 @@ eureka:
       defaultZone: http://${arb.eureka.url}:8901/eureka/
 
 spring:
-  application:
-    name: ${arb.service.name}
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://${arb.database.url}/panda?charset=utf8mb4&useSSL=false&rewriteBatchedStatements=true&autoReconnect=true
