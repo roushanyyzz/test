@@ -1,0 +1,219 @@
+arb:
+  service:
+    name: eureka-server
+    port: 8901
+
+server:
+  port: ${arb.service.port}
+spring:
+  application:
+    name: ${arb.service.name}
+  cloud:
+    inetutils:
+      use-only-site-local-interfaces: true
+  rabbitmq:
+    host: ${arb.rabbitmq.url}
+    port: 5672
+    username: ${arb.rabbitmq.username}
+    password: ${arb.rabbitmq.password}
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+eureka:
+  server:
+    enable-self-preservation: false
+#    eviction-interval-timer-in-ms: 10000
+
+---
+spring:
+  profiles: master
+eureka:
+  instance:
+    hostname: eureka.arbfintech.com
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://panda.arbfintech.com:8901/eureka/,http://online.arbfintech.com:8901/eureka/
+arb:
+  rabbitmq:
+    url: rmq.arbfintech.com
+    username: panda
+    password: 3JU6BvkC^1iI@LN5
+---
+spring:
+  profiles: slave-panda
+eureka:
+  instance:
+    hostname: panda.arbfintech.com
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka.arbfintech.com:8901/eureka/,http://online.arbfintech.com:8901/eureka/
+arb:
+  rabbitmq:
+    url: rmq.arbfintech.com
+    username: panda
+    password: 3JU6BvkC^1iI@LN5
+---
+spring:
+  profiles: slave-online
+eureka:
+  instance:
+    hostname: online.arbfintech.com
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://panda.arbfintech.com:8901/eureka/,http://eureka.arbfintech.com:8901/eureka/
+arb:
+  rabbitmq:
+    url: rmq.arbfintech.com
+    username: panda
+    password: 3JU6BvkC^1iI@LN5
+---
+spring:
+  profiles: release
+eureka:
+  instance:
+    hostname: panda.arbfintech.com
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+arb:
+  rabbitmq:
+    url: rmq.arbfintech.com
+    username: panda
+    password: 3JU6BvkC^1iI@LN5
+---
+spring:
+  profiles: develop
+eureka:
+  instance:
+    hostname: panda.arbfintech.com
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+arb:
+  rabbitmq:
+    url: rmq.arbfintech.com
+    username: panda
+    password: 3JU6BvkC^1iI@LN5
+---
+spring:
+  profiles: local
+eureka:
+  instance:
+    instance-id: localhost:${spring.application.name}:${server.port}
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+arb:
+  rabbitmq:
+    url: 192.168.0.100
+    username: Arbfintech
+    password: Arbfintech
+
+---
+spring:
+  profiles: master-100
+eureka:
+  instance:
+    instance-id: 192.168.0.100:${spring.application.name}:${server.port}
+    hostname: 192.168.0.100
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://192.168.0.110:${server.port}/eureka/
+arb:
+  rabbitmq:
+    url: 192.168.0.100
+    username: Arbfintech
+    password: Arbfintech
+---
+spring:
+  profiles: slave-110
+eureka:
+  instance:
+    instance-id: 192.168.0.110:${spring.application.name}:${server.port}
+    hostname: 192.168.0.110
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://192.168.0.100:${server.port}/eureka/
+arb:
+  rabbitmq:
+    url: 192.168.0.100
+    username: Arbfintech
+    password: Arbfintech
+---
+spring:
+  profiles: slave-120
+eureka:
+  instance:
+    instance-id: 192.168.0.120:${spring.application.name}:${server.port}
+    hostname: 192.168.0.120
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://192.168.0.100:${server.port}/eureka/
+arb:
+  rabbitmq:
+    url: 192.168.0.100
+    username: Arbfintech
+    password: Arbfintech
+
+---
+spring:
+  profiles: user-99
+eureka:
+  instance:
+    instance-id: 192.168.0.99:${spring.application.name}:${server.port}
+    hostname: 192.168.0.99
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+arb:
+  rabbitmq:
+    url: 192.168.0.100
+    username: Arbfintech
+    password: Arbfintech
+
+---
+spring:
+  profiles: user-99
+eureka:
+  instance:
+    instance-id: 192.168.0.99:${spring.application.name}:${server.port}
+    hostname: 192.168.0.99
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+arb:
+  rabbitmq:
+    url: 192.168.0.100
+    username: Arbfintech
+    password: Arbfintech
