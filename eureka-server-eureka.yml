@@ -6,8 +6,6 @@ arb:
 server:
   port: ${arb.service.port}
 spring:
-  application:
-    name: ${arb.service.name}
   cloud:
     inetutils:
       use-only-site-local-interfaces: true
