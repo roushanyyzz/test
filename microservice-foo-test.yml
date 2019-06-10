@@ -5,16 +5,16 @@ arb:
 
 eureka:
   instance:
-    instance-id: ${arb.service.url}:${spring.application.name}:${server.port}
-    hostname: ${arb.service.url}
-    ip-address: ${arb.service.url}
+    instance-id: 192.168.0.54:microservice-foo:8889
+    hostname: 192.168.0.54
+    ip-address: 192.168.0.54
     prefer-ip-address: true
 
   #    lease-renewal-interval-in-seconds: 10
   #    lease-expiration-duration-in-seconds: 30
   client:
     service-url:
-      defaultZone: http://${arb.eureka.url}:8901/eureka/
+      defaultZone: http://192.168.0.54:8901/eureka/
 feign:
   client:
     config:
@@ -47,20 +47,20 @@ feign:
   hystrix:
     enabled: true
 server:
-  port: ${arb.service.port}
+  port: 8889
   max-http-header-size: 10240000
   tomcat:
     max-http-post-size: -1
 spring:
   application:
-    name: ${arb.service.name}
+    name: microservice-foo
   mvc:
     static-path-pattern: /**
   rabbitmq:
-    host: ${arb.rabbitmq.url}
-    port: ${arb.rabbitmq.port}
-    username: ${arb.rabbitmq.username}
-    password: ${arb.rabbitmq.password}
+    host: 192.168.0.100
+    port: 5672
+    username: Arbfintech
+    password: Arbfintech
     publisher-confirms: true
     publisher-returns: true
     listener:
