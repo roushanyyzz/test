@@ -6,7 +6,7 @@ arb:
 
 eureka:
   instance:
-    instance-id: 192.168.0.54:microservice-config-server:8101
+    instance-id: 192.168.0.54:microservice-lead:8101
     hostname: 192.168.0.54
     ip-address: 192.168.0.54
     prefer-ip-address: true
