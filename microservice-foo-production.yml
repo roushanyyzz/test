@@ -5,7 +5,7 @@ service:
   url: 111111
 
 server:
-  port: ${arb.service.port}
+  port: 8890
 
   
 profile: production-${arb.service.name}-${arb.service.url}
