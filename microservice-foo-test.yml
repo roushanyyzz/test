@@ -78,15 +78,3 @@ spring:
       file-size-threshold: 0
       max-file-size: -1
       max-request-size: -1
-
-
-arb:
-  eureka:
-    url: 192.168.0.54
-  service:
-    url: 192.168.0.54
-  rabbitmq:
-    url: 192.168.0.100
-    port: 5672
-    username: Arbfintech
-    password: Arbfintech
