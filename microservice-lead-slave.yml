@@ -6,9 +6,9 @@ arb:
 
 eureka:
   instance:
-    instance-id: ${arb.service.url}:${spring.application.name}:${server.port}
-    hostname: ${arb.service.url}
-    ip-address: ${arb.service.url}
+    instance-id: 192.168.0.54:microservice-config-server:8101
+    hostname: 192.168.0.54
+    ip-address: 192.168.0.54
     prefer-ip-address: true
 
   #    lease-renewal-interval-in-seconds: 10
@@ -16,7 +16,7 @@ eureka:
   client:
     healthcheck: enabled
     service-url:
-      defaultZone: http://${arb.eureka.url}:8901/eureka/
+      defaultZone: http://192.168.0.54:8901/eureka/
       
 feign:
   client:
@@ -32,7 +32,7 @@ feign:
     connection-timeout: 60000
 server:
   max-http-header-size: 10240000
-  port: ${arb.service.port}
+  port: 8101
 spring:
   application:
     name: ${arb.service.name}
@@ -60,10 +60,10 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
     show-sql: false
   rabbitmq:
-    host: ${arb.rabbitmq.url}
+    host: 192.168.0.100
     port: 5672
-    username: ${arb.rabbitmq.username}
-    password: ${arb.rabbitmq.password}
+    username: Arbfintech
+    password: Arbfintech
     publisher-confirms: true
     publisher-returns: true
     listener:
