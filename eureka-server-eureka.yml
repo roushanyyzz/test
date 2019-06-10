@@ -6,7 +6,7 @@ arb:
 server:
   port: ${arb.service.port}
 spring:
-  application: 
+  application:
     name: ${arb.service.name}
   cloud:
     inetutils:
