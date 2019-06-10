@@ -1,10 +1,10 @@
 server:
-  port: 8890
+  port: ${arb.service.port}
   
 arb:
   service:
     name: station-panda
-    port: 8081
+    port: 8890
     url: 111111
   
 profile: production-${arb.service.name}-${arb.service.url}
