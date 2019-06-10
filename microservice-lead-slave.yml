@@ -6,9 +6,9 @@ arb:
 
 eureka:
   instance:
-    instance-id: ${arb.service.url}:${spring.application.name}:${server.port}
-    hostname: ${arb.service.url}
-    ip-address: ${arb.service.url}
+    instance-id: 192.168.0.54:microservice-lead:8101
+    hostname: 192.168.0.54
+    ip-address: 192.168.0.54
     prefer-ip-address: true
 
   #    lease-renewal-interval-in-seconds: 10
@@ -16,7 +16,7 @@ eureka:
   client:
     healthcheck: enabled
     service-url:
-      defaultZone: http://${arb.eureka.url}:8901/eureka/
+      defaultZone: http://192.168.0.54:8901/eureka/
 
 feign:
   client:
@@ -32,15 +32,15 @@ feign:
     connection-timeout: 60000
 server:
   max-http-header-size: 10240000
-  port: ${arb.service.port}
+  port: 8101
 spring:
   application:
-    name: ${arb.service.name}
+    name: microservice-lead
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://${arb.database.url}/panda?charset=utf8mb4&useSSL=false&rewriteBatchedStatements=true&autoReconnect=true
-    username: ${arb.database.username}
-    password: ${arb.database.password}
+    url: jdbc:mysql://192.168.0.100/panda?charset=utf8mb4&useSSL=false&rewriteBatchedStatements=true&autoReconnect=true
+    username: root
+    password: Arbfintech@123
     test-on-borrow: true                      # 指明是否从池中取出连接前进行检验，如果检验失败，则从池中取出连接并尝试取出另一个
     test-while-idle: true                     # 指明连接是否被空闲连接回收器（如果有）进行检验，如果检测失败，则连接将被从池中去除
     time-between-eviction-runs-millis: 60000  # 在空闲连接回收器线程运行期间休眠的时间值，姨毫秒为单位。如果设置为非整数，则不运行空闲连接回收器线程
@@ -60,10 +60,10 @@ spring:
         dialect: org.hibernate.dialect.MySQL5Dialect
     show-sql: false
   rabbitmq:
-    host: ${arb.rabbitmq.url}
+    host: 192.168.0.100
     port: 5672
-    username: ${arb.rabbitmq.username}
-    password: ${arb.rabbitmq.password}
+    username: Arbfintech
+    password: Arbfintech
     publisher-confirms: true
     publisher-returns: true
     listener:
@@ -71,96 +71,6 @@ spring:
         acknowledge-mode: manual
 logging:
   config: classpath:log4j2.yml
----
-spring:
-  profiles: release
-arb:
-  service:
-    hostname: microservice-lead
-  eureka:
-    url: china-dev.vertical.arbcalls.com
-  database:
-    url: china-dev.vertical.arbcalls.com
-    username: root
-    password: arbfintech
----
-spring:
-  profiles: develop
-arb:
-  eureka:
-    url: panda.arbfintech.com
-  service:
-    url: 54.255.235.134
-  database:
-    url: arb-panda.cuxwfpxsyc7c.ap-southeast-1.rds.amazonaws.com
-    username: panda_admin
-    password: uGEqetW#a8uEKA2z
-  rabbitmq:
-    url: rmq.arbfintech.com
-    username: panda
-    password: 3JU6BvkC^1iI@LN5
----
-spring:
-  profiles: debug
-arb:
-  service:
-    hostname: localhost
-  eureka:
-    url: 192.168.0.100
-  database:
-    url: 192.168.0.100:3306
-    username: root
-    password: Arbfintech@123
-  rabbitmq:
-    host: 3.1.102.94
-    username: panda
-    password: 3JU6BvkC^1iI@LN5
----
-spring:
-  profiles: test
-arb:
-  service:
-    hostname: microservice-lead
-  eureka:
-    url: 47.106.253.99
-  database:
-    url: 47.106.253.99:3306
-    username: root
-    password: arbfintech
-
----
-spring:
-  profiles: user-99
-arb:
-  eureka:
-    url: 192.168.0.99
-  service:
-    url: 192.168.0.99
-  database:
-    url: 192.168.0.100:3306
-    username: root
-    password: Arbfintech@123
-  rabbitmq:
-    url: 192.168.0.100
-    username: Arbfintech
-    password: Arbfintech
-    
----
-spring:
-  profiles: slave-54
-arb:
-  eureka:
-    url: 192.168.0.54
-  service:
-    url: 192.168.0.54
-  database:
-    url: 192.168.0.100:3306
-    username: root
-    password: Arbfintech@123
-  rabbitmq:
-    url: 192.168.0.100
-    username: Arbfintech
-    password: Arbfintech
 
 
 
