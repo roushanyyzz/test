@@ -1,11 +1,11 @@
 arb:
-service:
-  name: station-panda
-  port: 8890
-  url: 111111
+  service:
+    name: station-panda
+    port: 8890
+    url: 111111
 
 server:
   port: 8890
 
 #   ${arb.service.name}-${arb.service.url}
-profile: production-1111
+profile: ${arb.service.name}-${arb.service.url}
