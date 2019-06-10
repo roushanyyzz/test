@@ -3,11 +3,11 @@ server:
 
 arb:
   service:
-    name: station-panda
+    name: microservice-foo
     port: 8890
     url: 111111
 
 
 
 #   ${arb.service.name}-${arb.service.url}
-profile: ${arb.service.name}-${arb.service.url}
+profile: ${arb.service.name}-${arb.service.url}-${arb.service.name}
