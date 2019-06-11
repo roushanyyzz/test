@@ -1,9 +1,3 @@
-#自定义配置
-arb:
-  service:
-    name: microservice-business
-    port: 8802
-    
 eureka:
   instance:
     instance-id: 192.168.0.54:microservice-business:8802
