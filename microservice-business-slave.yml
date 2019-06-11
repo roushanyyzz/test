@@ -61,6 +61,5 @@ feign:
 server:
   max-http-header-size: 10240000
   port: 8802
-logging:
-  config: classpath:log4j2.yml
+
 
