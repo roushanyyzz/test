@@ -74,10 +74,10 @@ spring:
     show-sql: false
     database-platform: org.hibernate.dialect.H2Dialect  #only worked for h2
   rabbitmq:
-    host: ${arb.rabbitmq.url}
+    host: 192.168.0.100
     port: 5672
-    username: ${arb.rabbitmq.username}
-    password: ${arb.rabbitmq.password}
+    username: Arbfintech
+    password: Arbfintech
     publisher-confirms: true
     publisher-returns: true
     listener:
