@@ -83,5 +83,3 @@ spring:
     listener:
       simple:
         acknowledge-mode: manual
-logging:
-  config: classpath:log4j2.yml
