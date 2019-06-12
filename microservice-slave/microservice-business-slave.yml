@@ -54,4 +54,4 @@ feign:
 
 server:
   max-http-header-size: 10240000
-  port: ${arb.service.port}
+  port: 8802
