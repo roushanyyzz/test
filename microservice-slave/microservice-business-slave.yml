@@ -3,7 +3,7 @@ server:
   port: 8905
 eureka:
   instance:
-    instance-id: 192.168.0.54:cache-server:8905
+    instance-id: 192.168.0.54:microservice-business:8905
     hostname: 192.168.0.54
     ip-address: 192.168.0.54
     prefer-ip-address: true
@@ -16,7 +16,7 @@ eureka:
       defaultZone: http://192.168.0.54:8901/eureka/
 spring:
   application:
-    name: cache-server
+    name: microservice-business
   rabbitmq:
     host: 192.168.0.100
     port: 5672
