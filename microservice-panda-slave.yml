@@ -1,3 +1,5 @@
+
+
 eureka:
   instance:
     instance-id: 192.168.0.54:station-panda:8081
