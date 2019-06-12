@@ -96,7 +96,3 @@ ribbon:
   eager-load:
     enabled: true
     clients: maintenance-restapi,microservice-business,oauth-server,cache-server,microservice-collect,microservice-lead,microservice-loan,microservice-payment
-#logging:
-#  config: classpath:log4j2.yml
-
-
