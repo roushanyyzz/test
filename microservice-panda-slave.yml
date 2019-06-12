@@ -1,4 +1,13 @@
-
+server:
+  port: 8081
+  max-http-header-size: 10240000
+  tomcat:
+    max-http-post-size: -1
+  ssl:
+    enabled-protocols: TLSv1.2
+    key-store: classpath:arbfintech_cert.jks
+    key-store-password: Arb@8888
+    keyAlias: arbfintech
 
 eureka:
   instance:
@@ -46,16 +55,7 @@ feign:
       connection-timeout: 60000
 #  hystrix:
 #    enabled: true
-server:
-  port: 8081
-  max-http-header-size: 10240000
-  tomcat:
-    max-http-post-size: -1
-  ssl:
-    enabled-protocols: TLSv1.2
-    key-store: classpath:arbfintech_cert.jks
-    key-store-password: Arb@8888
-    keyAlias: arbfintech
+
 
 spring:
   profiles: slave-54
