@@ -58,7 +58,6 @@ feign:
 
 
 spring:
-  profiles: slave-54
   application:
     name: station-panda
   mvc:
